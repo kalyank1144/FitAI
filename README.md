@@ -53,6 +53,7 @@ WEB_REDIRECT_URL=https://.../auth/callback
 1. Firebase
    - Add GoogleService-Info.plist (iOS), google-services.json (Android), and Web config in `web/index.html` or via `firebase_options.dart` (FlutterFire). Update `Firebase.initializeApp` accordingly.
    - Enable Analytics, Crashlytics, Cloud Messaging. On Android 13+ POST_NOTIFICATIONS permission is declared.
+   - For Web push, keep `web/firebase-messaging-sw.js` present.
 2. Supabase
    - Create projects for dev/stg/prod; fill `.env.*` vars. Add redirect URIs listed above.
 3. RevenueCat
@@ -60,9 +61,10 @@ WEB_REDIRECT_URL=https://.../auth/callback
 4. Stripe (Web only)
    - Configure Checkout for subscriptions with trial. Replace the placeholder action in `PaywallScreen` with real Checkout session creation.
 5. Maps & Health
-   - Put `MAPS_API_KEY` in Android flavors (already wired via resValue). iOS: add key in AppDelegate/Info.plist. HealthKit/Google Fit entitlements/permissions per platform.
-6. iOS flavors (optional)
-   - Create schemes (Dev/Stg/Prod) pointing to Runner with unique bundle IDs: `com.fitai.app.dev`, `com.fitai.app.stg`, `com.fitai.app`. Add URL types for `fitai-dev`, `fitai-stg`, `fitai`.
+   - Put `MAPS_API_KEY` in Android flavors (already wired via resValue). iOS: add key in AppDelegate/Info.plist if needed. HealthKit/Google Fit entitlements/permissions per platform.
+6. iOS flavors
+   - Use shared schemes included: `FitAI-Dev`, `FitAI-Staging`, `FitAI-Prod`. These launch the appropriate Dart entrypoints.
+   - Bundle IDs and display names per env are provided via xcconfig files in `ios/Flutter` (Dev/Stg/Prod). Select the scheme and ensure the corresponding xcconfig is applied if needed.
 
 ## Scripts
 - Codegen: `flutter pub run build_runner build -d`

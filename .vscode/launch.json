@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter Dev (Android)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": ["--flavor", "dev", "-t", "lib/main.dart"]
+    },
+    {
+      "name": "Flutter Staging (Android)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "toolArgs": ["--flavor", "stg", "-t", "lib/main_stg.dart"]
+    },
+    {
+      "name": "Flutter Prod (Android)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "toolArgs": ["--flavor", "prod", "-t", "lib/main_prod.dart"]
+    },
+    {
+      "name": "Flutter Web (Dev)",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "chrome",
+      "toolArgs": ["-t", "lib/main.dart"]
+    }
+  ]
+}
