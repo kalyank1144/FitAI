@@ -13,6 +13,7 @@ import '../core/env/env.dart';
 import '../core/storage/local_db.dart';
 import '../core/analytics/analytics.dart';
 import '../core/messaging/messaging_service.dart';
+import '../features/subscriptions/subscription_service.dart';
 import 'app.dart';
 
 Future<void> bootstrap(Env env) async {
@@ -27,6 +28,7 @@ Future<void> bootstrap(Env env) async {
   await _initSupabase(config);
   await _initLocalNotifications();
   await MessagingService().init();
+  await SubscriptionService(config).init();
 
   final container = ProviderContainer(
     overrides: [
