@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "12246511496",
+    "project_id": "fit-ai-8f6be",
+    "storage_bucket": "fit-ai-8f6be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12246511496:android:910873b1906ae1ece4543d",
+        "android_client_info": {
+          "package_name": "com.codesnesthorizon.FitAi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbbA3G0nK53htsg_Hgiovd_hG1mdpkRhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
