@@ -1,0 +1,57 @@
+name: fitai
+description: "FitAI - AI-powered fitness app"
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons:
+  flutter_riverpod:
+  go_router:
+  dio:
+  retrofit:
+  freezed_annotation:
+  json_annotation:
+  isar:
+  isar_flutter_libs:
+  path_provider:
+  flutter_dotenv:
+  firebase_core:
+  firebase_analytics:
+  firebase_crashlytics:
+  firebase_messaging:
+  supabase_flutter:
+  local_auth:
+  health:
+  geolocator:
+  google_maps_flutter:
+  mobile_scanner:
+  image_picker:
+  rive:
+  lottie:
+  flutter_local_notifications:
+  material_symbols_icons:
+  purchases_flutter:
+  intl:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.7.0
+  freezed: ^3.2.0
+  json_serializable: ^6.11.0
+  retrofit_generator: ^10.0.2
+  very_good_analysis: ^9.0.0
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/animations/
+    - assets/lottie/
+    - assets/rive/
+    - assets/placeholder/

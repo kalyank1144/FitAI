@@ -1,0 +1,3 @@
+#include "Debug.xcconfig"
+PRODUCT_BUNDLE_IDENTIFIER = com.fitai.app.dev
+APP_DISPLAY_NAME = FitAI Dev
