@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/messaging/messaging_service.dart';
+import 'data/profile_repository.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -20,7 +21,10 @@ class ProfileScreen extends ConsumerWidget {
           subtitle: Text(token ?? 'Request permission and fetch token'),
           trailing: FilledButton(
             onPressed: () async {
-              await MessagingService().requestAndGetToken(ref);
+              final t = await MessagingService().requestAndGetToken(ref);
+              if (t != null) {
+                await saveFcmToken(t);
+              }
             },
             child: const Text('Enable'),
           ),
