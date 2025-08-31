@@ -44,10 +44,18 @@ WEB_REDIRECT_URL=https://.../auth/callback
 - Navigation skeleton: Onboarding flow, 5 tabs (Home, Train, Activity, Nutrition, Profile), loading/empty placeholders, hero/parallax section.
 - Analytics service with typed events + go_router observer. Crashlytics init with safe fallbacks.
 - Supabase bootstrap + Auth repository (Google/Apple OAuth), biometrics unlock helpers.
+- Train tab: real-time Exercise Library streaming from Supabase `exercises` table with image placeholders.
 - Health + GPS scaffolding (permissions + live location). Nutrition stubs: quick add sheet, barcode scan page, meal photo assist with mock AI + Supabase Storage upload.
 - Notifications: local notifications + reminders screen; FCM token retrieval.
 - Subscriptions: RevenueCat SDK wiring on mobile; simple Paywall UI with 15‑day trial badge; Stripe web button placeholder.
 - CI: GitHub Actions for analyze/test and web/android/ios builds.
+
+## Supabase database setup (one-time)
+Run `supabase/setup_exercises.sql` in your Supabase project (SQL editor). It will:
+- Create `public.exercises` table with RLS (anon: read, authenticated: write)
+- Create a public storage bucket `exercise-media` with read access for anon
+- Add example rows using public sample images (replace with your own)
+Once applied, open the app → Train → Exercise Library; changes stream live.
 
 ## Required setup
 1. Firebase

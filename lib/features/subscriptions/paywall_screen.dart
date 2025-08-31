@@ -43,7 +43,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
             const SizedBox(height: 8),
             const Chip(label: Text('15-day free trial')),
             const SizedBox(height: 16),
-            if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) ...[
+            if (!kIsWeb && (Platform.isAndroid || Platform.isIOS) && packages.isNotEmpty) ...[
               for (final p in packages)
                 Card(
                   child: ListTile(
@@ -56,12 +56,21 @@ class _PaywallScreenState extends State<PaywallScreen> {
                   ),
                 ),
             ] else ...[
-              FilledButton(
-                onPressed: () {
-                  final url = Uri.parse('https://checkout.stripe.com/pay');
-                  // In real app, open Checkout with publishable key.
-                },
-                child: const Text('Subscribe with Stripe (Web)'),
+              const Text('Offerings loading… showing placeholders'),
+              const SizedBox(height: 8),
+              Card(
+                child: ListTile(
+                  title: const Text('Monthly'),
+                  subtitle: const Text('15‑day free trial, then $9.99/mo'),
+                  trailing: FilledButton(onPressed: null, child: const Text('Select')),
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: const Text('Yearly'),
+                  subtitle: const Text('15‑day free trial, then $79.99/yr'),
+                  trailing: FilledButton(onPressed: null, child: const Text('Select')),
+                ),
               ),
             ],
           ],

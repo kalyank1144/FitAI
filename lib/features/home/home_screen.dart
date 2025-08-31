@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/components/metric_tile.dart';
 import '../../core/components/progress_ring.dart';
 import '../../core/theme/tokens.dart';
+import '../train/data/program_repository.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final featured = ref.watch(featuredProgramsProvider);
     return CustomScrollView(
       slivers: [
         SliverAppBar.large(
@@ -45,37 +48,15 @@ class HomeScreen extends StatelessWidget {
             mainAxisSpacing: 12,
             childAspectRatio: 1.4,
             children: const [
-              MetricTile(title: 'Steps', value: '7,842'),
-              MetricTile(title: 'Calories', value: '1,230', gradient: LinearGradient(colors: [AppTokens.neonCoral, AppTokens.neonMagenta])),
-              MetricTile(title: 'HR', value: '74 bpm'),
-              MetricTile(title: 'Sleep', value: '7h 42m'),
+              MetricTile(title: 'Steps', value: '—'),
+              MetricTile(title: 'Calories', value: '—', gradient: LinearGradient(colors: [AppTokens.neonCoral, AppTokens.neonMagenta])),
+              MetricTile(title: 'HR', value: '—'),
+              MetricTile(title: 'Sleep', value: '—'),
             ],
           ),
         ),
         SliverToBoxAdapter(
-          child: SizedBox(
-            height: 180,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemBuilder: (c, i) => Container(
-                width: 260,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  gradient: i.isEven ? AppTokens.perfGradient : AppTokens.activityGradient,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text('For You', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                  ),
-                ),
-              ),
-              separatorBuilder: (c, _) => const SizedBox(width: 12),
-              itemCount: 6,
-            ),
-          ),
+          child: SizedBox(height: 180, child: _FeaturedCarousel(featured: featured)),
         ),
         SliverToBoxAdapter(
           child: Padding(
@@ -92,6 +73,65 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _FeaturedCarousel extends StatelessWidget {
+  const _FeaturedCarousel({required this.featured});
+  final AsyncValue<List<dynamic>> featured;
+  @override
+  Widget build(BuildContext context) {
+    return featured.when(
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, _) => Center(child: Text('Error: $e')),
+      data: (items) {
+        if (items.isEmpty) {
+          return ListView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            children: const [
+              _FeaturedCard(title: 'No featured programs yet'),
+            ],
+          );
+        }
+        return ListView.separated(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          itemBuilder: (c, i) => _FeaturedCard(title: items[i].name, coverUrl: items[i].coverUrl),
+          separatorBuilder: (c, _) => const SizedBox(width: 12),
+          itemCount: items.length,
+        );
+      },
+    );
+  }
+}
+
+class _FeaturedCard extends StatelessWidget {
+  const _FeaturedCard({required this.title, this.coverUrl});
+  final String title;
+  final String? coverUrl;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 260,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: AppTokens.perfGradient,
+      ),
+      clipBehavior: Clip.antiAlias,
+      child: Stack(
+        children: [
+          if (coverUrl != null && coverUrl!.isNotEmpty)
+            Positioned.fill(child: Image.network(coverUrl!, fit: BoxFit.cover, errorBuilder: (_, __, ___) => const SizedBox.shrink())),
+          Positioned(
+            left: 16,
+            bottom: 16,
+            right: 16,
+            child: Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+          ),
+        ],
+      ),
     );
   }
 }
