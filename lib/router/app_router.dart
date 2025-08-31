@@ -9,13 +9,17 @@ import '../features/nutrition/nutrition_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../features/onboarding/onboarding_flow.dart';
 import '../core/analytics/analytics.dart';
+import '../features/auth/ui/sign_in_screen.dart';
+import '../features/auth/data/auth_state.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final analytics = ref.read(analyticsProvider);
+  final hasSession = ref.read(sessionProvider) != null;
   return GoRouter(
-    initialLocation: '/onboarding',
+    initialLocation: hasSession ? '/' : '/auth',
     observers: [if (analytics != null) GoRouteObserver(analytics!)],
     routes: [
+      GoRoute(path: '/auth', builder: (c, s) => const SignInScreen()),
       GoRoute(path: '/onboarding', builder: (c, s) => const OnboardingFlow()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => AppScaffold(shell: navigationShell),
@@ -28,9 +32,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
     ],
-    redirect: (context, state) {
-      return null;
-    },
   );
 });
 
