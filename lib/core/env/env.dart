@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum Env { dev, stg, prod }
 
@@ -66,3 +67,5 @@ class EnvConfig {
   bool get isAndroid => !kIsWeb && Platform.isAndroid;
   bool get isIOS => !kIsWeb && Platform.isIOS;
 }
+
+final envProvider = Provider<EnvConfig>((ref) => throw UnimplementedError());

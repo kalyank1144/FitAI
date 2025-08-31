@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -13,6 +14,7 @@ import '../core/env/env.dart';
 import '../core/storage/local_db.dart';
 import '../core/analytics/analytics.dart';
 import '../core/messaging/messaging_service.dart';
+import '../core/messaging/firebase_background.dart';
 import '../features/subscriptions/subscription_service.dart';
 import 'app.dart';
 
@@ -52,8 +54,13 @@ Future<void> bootstrap(Env env) async {
 Future<void> _initFirebase() async {
   try {
     await Firebase.initializeApp();
+    FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+    await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
   } catch (e) {
-    // No default options provided (CI or local without config). Continue without Firebase.
     if (kDebugMode) debugPrint('Firebase init skipped: $e');
   }
 }
@@ -82,9 +89,17 @@ Future<void> _initLocalNotifications() async {
     iOS: DarwinInitializationSettings(),
   );
   await plugin.initialize(initializationSettings);
+
+  const channel = AndroidNotificationChannel(
+    'reminders',
+    'Reminders',
+    description: 'Workout and streak reminders',
+    importance: Importance.high,
+  );
+  await plugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel);
 }
 
-final envProvider = Provider<EnvConfig>((ref) => throw UnimplementedError());
 final firebaseAnalyticsProvider = Provider<FirebaseAnalytics?>((ref) {
   try {
     return FirebaseAnalytics.instance;

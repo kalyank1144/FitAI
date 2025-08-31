@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:purchases_flutter/purchases_flutter.dart';
 
 import '../../core/env/env.dart';
@@ -24,8 +24,3 @@ class SubscriptionService {
     return false;
   }
 }
-
-final subscriptionServiceProvider = Provider<SubscriptionService>((ref) {
-  final env = ref.read(envProvider);
-  return SubscriptionService(env);
-});

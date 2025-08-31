@@ -55,3 +55,6 @@ flutter:
     - assets/lottie/
     - assets/rive/
     - assets/placeholder/
+    - .env.dev
+    - .env.stg
+    - .env.prod
