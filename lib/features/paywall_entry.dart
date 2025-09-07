@@ -1,9 +1,9 @@
+import 'package:fitai/core/env/env.dart';
+import 'package:fitai/features/subscriptions/paywall_screen.dart';
 import 'package:flutter/material.dart';
-import 'features/subscriptions/paywall_screen.dart';
-import '../core/env/env.dart';
 
 class PaywallEntryButton extends StatelessWidget {
-  const PaywallEntryButton({super.key, required this.env});
+  const PaywallEntryButton({required this.env, super.key});
   final EnvConfig env;
   @override
   Widget build(BuildContext context) {

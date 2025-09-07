@@ -4,56 +4,79 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:fitai/app/app.dart';
+import 'package:fitai/core/analytics/analytics.dart';
+import 'package:fitai/core/env/env.dart';
+import 'package:fitai/core/messaging/firebase_background.dart';
+import 'package:fitai/core/messaging/messaging_service.dart';
+import 'package:fitai/core/storage/local_db.dart';
+import 'package:fitai/features/subscriptions/subscription_service.dart';
+import 'package:fitai/firebase_options.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../core/env/env.dart';
-import '../core/storage/local_db.dart';
-import '../core/analytics/analytics.dart';
-import '../core/messaging/messaging_service.dart';
-import '../core/messaging/firebase_background.dart';
-import '../features/subscriptions/subscription_service.dart';
-import 'app.dart';
-
 Future<void> bootstrap(Env env) async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // Initialize Flutter bindings within the zone for web compatibility
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  final config = await EnvConfig.load(env);
+    final config = await EnvConfig.load(env);
 
-  await _initFirebase();
-  _setupCrashlytics();
+    await _initFirebase();
+    _setupCrashlytics();
 
-  await LocalDb.instance.init();
-  await _initSupabase(config);
-  await _initLocalNotifications();
-  await MessagingService().init();
-  await SubscriptionService(config).init();
+    await LocalDb.instance.init();
+    await _initSupabase(config);
+    
+    // Skip notifications and messaging on web platform
+    if (!kIsWeb) {
+      await _initLocalNotifications();
+      await MessagingService().init();
+    }
+    
+    await SubscriptionService(config).init();
 
-  final container = ProviderContainer(
-    overrides: [
-      envProvider.overrideWithValue(config),
-      analyticsProvider.overrideWithValue(AnalyticsService()),
-    ],
-  );
+    final container = ProviderContainer(
+      overrides: [
+        envProvider.overrideWithValue(config),
+        analyticsProvider.overrideWithValue(AnalyticsService()),
+      ],
+    );
 
-  FlutterError.onError = (details) {
-    FlutterError.presentError(details);
-    FirebaseCrashlytics.instance.recordFlutterError(details);
-  };
+    FlutterError.onError = (details) {
+      FlutterError.presentError(details);
+      if (!kIsWeb) {
+        FirebaseCrashlytics.instance.recordFlutterError(details);
+      }
+    };
 
-  runZonedGuarded(() {
     runApp(UncontrolledProviderScope(container: container, child: const App()));
   }, (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack);
+    if (kDebugMode) {
+      debugPrint('Uncaught error: $error');
+      debugPrint('Stack trace: $stack');
+    }
+    if (!kIsWeb) {
+      FirebaseCrashlytics.instance.recordError(error, stack);
+    }
   });
 }
 
 Future<void> _initFirebase() async {
   try {
-    await Firebase.initializeApp();
+    // Skip Firebase initialization on web to avoid configuration issues
+    if (kIsWeb) {
+      if (kDebugMode) debugPrint('Firebase init skipped on web platform');
+      return;
+    }
+    
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       alert: true,
@@ -66,6 +89,9 @@ Future<void> _initFirebase() async {
 }
 
 void _setupCrashlytics() {
+  // Firebase Crashlytics is not supported on web platform
+  if (kIsWeb) return;
+  
   if (kDebugMode) {
     FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
   } else {
@@ -102,6 +128,10 @@ Future<void> _initLocalNotifications() async {
 
 final firebaseAnalyticsProvider = Provider<FirebaseAnalytics?>((ref) {
   try {
+    // Skip Firebase Analytics on web if not properly configured
+    if (kIsWeb) {
+      return null;
+    }
     return FirebaseAnalytics.instance;
   } catch (_) {
     return null;

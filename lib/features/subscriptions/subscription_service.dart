@@ -1,10 +1,8 @@
 import 'dart:io' show Platform;
 
+import 'package:fitai/core/env/env.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:purchases_flutter/purchases_flutter.dart';
-
-import '../../core/env/env.dart';
 
 class SubscriptionService {
   SubscriptionService(this._env);

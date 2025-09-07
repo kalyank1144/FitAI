@@ -1,13 +1,12 @@
 import 'dart:io' show Platform;
 
+import 'package:fitai/core/env/env.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
-import '../../core/env/env.dart';
-
 class PaywallScreen extends StatefulWidget {
-  const PaywallScreen({super.key, required this.env});
+  const PaywallScreen({required this.env, super.key});
   final EnvConfig env;
   @override
   State<PaywallScreen> createState() => _PaywallScreenState();

@@ -16,8 +16,8 @@ dependencies:
   retrofit:
   freezed_annotation:
   json_annotation:
-  isar:
-  isar_flutter_libs:
+  # isar:
+  # isar_flutter_libs:
   path_provider:
   flutter_dotenv:
   firebase_core:
@@ -37,7 +37,6 @@ dependencies:
   material_symbols_icons:
   purchases_flutter:
   intl:
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

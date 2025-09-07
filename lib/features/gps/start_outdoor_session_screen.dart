@@ -1,7 +1,6 @@
+import 'package:fitai/gps_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-
-import 'gps_repository.dart';
 
 class StartOutdoorSessionScreen extends StatefulWidget {
   const StartOutdoorSessionScreen({super.key});

@@ -37,6 +37,19 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <!-- Firebase SDKs for web -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-messaging-compat.js"></script>
+  
+  <!-- Firebase Configuration -->
+  <script>
+    // Firebase configuration will be injected by Flutter
+    window.firebaseConfig = {
+      // This will be populated by Flutter's Firebase initialization
+    };
+  </script>
+  
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

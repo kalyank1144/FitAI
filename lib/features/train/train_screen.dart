@@ -1,13 +1,15 @@
+import 'package:fitai/core/components/neon_focus.dart';
+import 'package:fitai/features/train/data/exercise_repository.dart';
+import 'package:fitai/features/train/data/program_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../core/components/neon_focus.dart';
-import 'data/exercise_repository.dart';
 
 class TrainScreen extends ConsumerWidget {
   const TrainScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final exercisesAsync = ref.watch(exerciseStreamProvider);
+    final programsAsync = ref.watch(featuredProgramsProvider);
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -21,24 +23,86 @@ class TrainScreen extends ConsumerWidget {
         const SizedBox(height: 8),
         SizedBox(
           height: 160,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
-            itemBuilder: (_, i) => NeonFocus(
-              child: Container(
-                width: 220,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.04),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                padding: const EdgeInsets.all(16),
-                child: const Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text('Hypertrophy Base'),
-                ),
-              ),
+          child: programsAsync.when(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (e, _) => Center(
+              child: Text('Failed to load programs: $e'),
             ),
+            data: (programs) {
+              if (programs.isEmpty) {
+                return const Center(
+                  child: Text('No featured programs available.\nAdd programs to Supabase with is_featured = true.'),
+                );
+              }
+              return ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: programs.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (_, i) {
+                  final program = programs[i];
+                  return NeonFocus(
+                    child: Container(
+                      width: 220,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.04),
+                        borderRadius: BorderRadius.circular(16),
+                        image: program.coverUrl != null
+                            ? DecorationImage(
+                                image: NetworkImage(program.coverUrl!),
+                                fit: BoxFit.cover,
+                                colorFilter: ColorFilter.mode(
+                                  Colors.black.withOpacity(0.3),
+                                  BlendMode.darken,
+                                ),
+                              )
+                            : null,
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            program.name,
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          if (program.description != null) ...[
+                            const SizedBox(height: 4),
+                            Text(
+                              program.description!,
+                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: Colors.white70,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                          const SizedBox(height: 4),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              program.difficulty ?? 'Beginner',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ),
         const SizedBox(height: 24),

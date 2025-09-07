@@ -2,10 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class ActivityToday {
+  const ActivityToday({this.steps = 0, this.calories = 0, this.avgHr = 0, this.distance = 0.0, this.activeMinutes = 0});
   final int steps;
   final int calories;
   final int avgHr;
-  const ActivityToday({this.steps = 0, this.calories = 0, this.avgHr = 0});
+  final double distance; // in kilometers
+  final int activeMinutes;
 }
 
 class ActivityRepository {
@@ -20,10 +22,15 @@ class ActivityRepository {
         .map((rows) {
       if (rows.isEmpty) return const ActivityToday();
       final r = rows.first;
+      final steps = (r['steps'] ?? 0) as int;
+      // Calculate distance from steps (approximate: 1 step = 0.0008 km)
+      final distance = steps * 0.0008;
       return ActivityToday(
-        steps: (r['steps'] ?? 0) as int,
+        steps: steps,
         calories: (r['calories'] ?? 0) as int,
         avgHr: (r['avg_hr'] ?? 0) as int,
+        distance: distance,
+        activeMinutes: (r['active_minutes'] ?? 0) as int,
       );
     });
   }

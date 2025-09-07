@@ -1,9 +1,4 @@
 class Exercise {
-  final String id;
-  final String name;
-  final String? primaryMuscle;
-  final String? equipment;
-  final String? mediaUrl;
 
   const Exercise({
     required this.id,
@@ -20,4 +15,9 @@ class Exercise {
         equipment: map['equipment']?.toString(),
         mediaUrl: map['media_url']?.toString(),
       );
+  final String id;
+  final String name;
+  final String? primaryMuscle;
+  final String? equipment;
+  final String? mediaUrl;
 }

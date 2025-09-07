@@ -7,15 +7,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 enum Env { dev, stg, prod }
 
 class EnvConfig {
-  final Env env;
-  final String supabaseUrl;
-  final String supabaseAnonKey;
-  final String revenuecatApiKey;
-  final String stripePublishableKey;
-  final String stripePriceId;
-  final String mapsApiKey;
-  final String oauthRedirectUri;
-  final String webRedirectUrl;
 
   const EnvConfig({
     required this.env,
@@ -28,6 +19,15 @@ class EnvConfig {
     required this.oauthRedirectUri,
     required this.webRedirectUrl,
   });
+  final Env env;
+  final String supabaseUrl;
+  final String supabaseAnonKey;
+  final String revenuecatApiKey;
+  final String stripePublishableKey;
+  final String stripePriceId;
+  final String mapsApiKey;
+  final String oauthRedirectUri;
+  final String webRedirectUrl;
 
   static Future<EnvConfig> load([Env? override]) async {
     final fallback = _fromString(const String.fromEnvironment('ENV', defaultValue: 'dev'));

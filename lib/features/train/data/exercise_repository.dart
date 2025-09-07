@@ -1,10 +1,9 @@
 import 'dart:async';
 
+import 'package:fitai/features/train/data/exercise.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
-import 'exercise.dart';
 
 class ExerciseRepository {
   final _client = Supabase.instance.client;
@@ -15,7 +14,7 @@ class ExerciseRepository {
           .from('exercises')
           .stream(primaryKey: ['id'])
           .order('name')
-          .map((rows) => rows.map((e) => Exercise.fromMap(e)).toList());
+          .map((rows) => rows.map(Exercise.fromMap).toList());
       return stream;
     } catch (e) {
       if (kDebugMode) {

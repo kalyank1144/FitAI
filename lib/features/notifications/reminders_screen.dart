@@ -22,7 +22,11 @@ class _RemindersScreenState extends State<RemindersScreen> {
             value: enabled,
             onChanged: (v) async {
               setState(() => enabled = v);
-              if (v) await schedule(); else await plugin.cancelAll();
+              if (v) {
+                await schedule();
+              } else {
+                await plugin.cancelAll();
+              }
             },
             title: const Text('Daily workout reminder'),
           ),
@@ -52,7 +56,7 @@ class _RemindersScreenState extends State<RemindersScreen> {
     await plugin.zonedSchedule(
       1001,
       'Workout time',
-      'Let\'s keep the streak!',
+      "Let's keep the streak!",
       scheduleTime,
       details,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,

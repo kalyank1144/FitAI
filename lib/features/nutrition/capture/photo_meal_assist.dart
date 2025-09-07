@@ -1,10 +1,9 @@
 import 'dart:typed_data';
 
+import 'package:fitai/services/photo_meal_ai_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
-import '../services/photo_meal_ai_service.dart';
 
 class PhotoMealAssistPage extends StatefulWidget {
   const PhotoMealAssistPage({super.key});

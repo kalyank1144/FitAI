@@ -1,23 +1,34 @@
+import 'package:fitai/core/analytics/analytics.dart';
+import 'package:fitai/features/activity/activity_screen.dart';
+import 'package:fitai/features/auth/data/auth_state.dart';
+import 'package:fitai/features/auth/ui/sign_in_screen.dart';
+import 'package:fitai/features/home/home_screen.dart';
+import 'package:fitai/features/nutrition/nutrition_screen.dart';
+import 'package:fitai/features/onboarding/onboarding_flow.dart';
+import 'package:fitai/features/profile/profile_screen.dart';
+import 'package:fitai/features/train/train_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../features/home/home_screen.dart';
-import '../features/train/train_screen.dart';
-import '../features/activity/activity_screen.dart';
-import '../features/nutrition/nutrition_screen.dart';
-import '../features/profile/profile_screen.dart';
-import '../features/onboarding/onboarding_flow.dart';
-import '../core/analytics/analytics.dart';
-import '../features/auth/ui/sign_in_screen.dart';
-import '../features/auth/data/auth_state.dart';
+import 'package:go_router/go_router.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final analytics = ref.read(analyticsProvider);
-  final hasSession = ref.read(sessionProvider) != null;
   return GoRouter(
-    initialLocation: hasSession ? '/' : '/auth',
-    observers: [if (analytics != null) GoRouteObserver(analytics!)],
+    initialLocation: '/auth',
+    observers: [if (analytics != null) GoRouteObserver(analytics)],
+    redirect: (context, state) {
+      final session = Supabase.instance.client.auth.currentSession;
+      final isAuthRoute = state.matchedLocation == '/auth';
+      
+      if (session == null && !isAuthRoute) {
+        return '/auth';
+      }
+      if (session != null && isAuthRoute) {
+        return '/';
+      }
+      return null;
+    },
     routes: [
       GoRoute(path: '/auth', builder: (c, s) => const SignInScreen()),
       GoRoute(path: '/onboarding', builder: (c, s) => const OnboardingFlow()),
@@ -36,7 +47,7 @@ final routerProvider = Provider<GoRouter>((ref) {
 });
 
 class AppScaffold extends ConsumerStatefulWidget {
-  const AppScaffold({super.key, required this.shell});
+  const AppScaffold({required this.shell, super.key});
   final StatefulNavigationShell shell;
 
   @override
@@ -63,6 +74,7 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
     );
   }
 }
+
 
 class GoRouteObserver extends NavigatorObserver {
   GoRouteObserver(this.analytics);
