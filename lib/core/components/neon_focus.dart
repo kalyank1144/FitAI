@@ -1,8 +1,8 @@
-import 'package:fitai/core/theme/tokens.dart';
 import 'package:flutter/material.dart';
+import 'package:fitai/core/theme/tokens.dart';
 
 class NeonFocus extends StatelessWidget {
-  const NeonFocus({required this.child, super.key});
+  const NeonFocus({super.key, required this.child});
   final Widget child;
   @override
   Widget build(BuildContext context) {

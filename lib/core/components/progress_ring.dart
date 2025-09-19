@@ -1,10 +1,9 @@
 import 'dart:math' as math;
-
-import 'package:fitai/core/theme/tokens.dart';
 import 'package:flutter/material.dart';
+import 'package:fitai/core/theme/tokens.dart';
 
 class ProgressRing extends StatefulWidget {
-  const ProgressRing({required this.progress, super.key, this.size = 64});
+  const ProgressRing({super.key, required this.progress, this.size = 64});
   final double progress; // 0..1
   final double size;
 

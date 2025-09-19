@@ -1,5 +1,5 @@
-import 'package:fitai/core/theme/tokens.dart';
 import 'package:flutter/material.dart';
+import 'package:fitai/core/theme/tokens.dart';
 
 class AppTheme {
   static ThemeData dark() {
@@ -44,7 +44,7 @@ class AppTheme {
 
 
 class GradientBorder extends StatelessWidget {
-  const GradientBorder({required this.child, super.key, this.gradient, this.radius = AppTokens.radius});
+  const GradientBorder({super.key, required this.child, this.gradient, this.radius = AppTokens.radius});
   final Widget child;
   final Gradient? gradient;
   final double radius;
