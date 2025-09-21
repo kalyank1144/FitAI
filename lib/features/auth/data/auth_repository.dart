@@ -7,7 +7,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthRepository {
   AuthRepository(this._env);
   final EnvConfig _env;
-  final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase = Supabase.instance.client;
   final _localAuth = LocalAuthentication();
 
   Future<void> signInWithGoogle() async {
@@ -21,14 +21,14 @@ class AuthRepository {
   }
 
   Future<AuthResponse> signInWithEmail(String email, String password) async {
-    return await _supabase.auth.signInWithPassword(
+    return _supabase.auth.signInWithPassword(
       email: email,
       password: password,
     );
   }
 
   Future<AuthResponse> signUpWithEmail(String email, String password) async {
-    return await _supabase.auth.signUp(
+    return _supabase.auth.signUp(
       email: email,
       password: password,
     );
@@ -42,7 +42,38 @@ class AuthRepository {
   Future<bool> biometricsAuthenticate() => _localAuth.authenticate(localizedReason: 'Unlock FitAI');
   
   Future<void> signOut() async {
-    await _supabase.auth.signOut();
+    try {
+      // Sign out from Supabase
+      await _supabase.auth.signOut();
+      
+      // Clear any cached data if needed
+      // Note: Supabase automatically clears session data
+    } catch (e) {
+      // Even if signOut fails, we should clear local session
+      // This handles cases where network is unavailable
+      throw Exception('Failed to sign out: ${e.toString()}');
+    }
+  }
+  
+  /// Check if user session is valid and not expired
+  bool get isSessionValid {
+    final session = currentSession;
+    if (session == null) return false;
+    
+    // Check if session is expired
+    final expiresAt = DateTime.fromMillisecondsSinceEpoch(session.expiresAt! * 1000);
+    return DateTime.now().isBefore(expiresAt);
+  }
+  
+  /// Refresh the current session if needed
+  Future<AuthResponse?> refreshSession() async {
+    try {
+      final response = await _supabase.auth.refreshSession();
+      return response;
+    } catch (e) {
+      // If refresh fails, the session is likely invalid
+      return null;
+    }
   }
   
   User? get currentUser => _supabase.auth.currentUser;
@@ -50,6 +81,6 @@ class AuthRepository {
 }
 
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  final env = ref.read(envProvider);
+  final env = ref.read(envConfigProvider);
   return AuthRepository(env);
 });

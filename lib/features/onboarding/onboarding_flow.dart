@@ -20,7 +20,7 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24),
           child: Column(
             children: [
               Expanded(child: pages[index]),

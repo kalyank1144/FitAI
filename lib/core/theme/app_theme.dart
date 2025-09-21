@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:fitai/core/theme/tokens.dart';
+import 'package:flutter/material.dart';
 
+/// Application theme configuration.
 class AppTheme {
+  /// Creates the dark theme for the application.
   static ThemeData dark() {
     final base = ThemeData.dark(useMaterial3: true);
     final colorScheme = ColorScheme.fromSeed(
@@ -22,31 +24,39 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: AppTokens.surface,
         elevation: 4,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppTokens.radius)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppTokens.radius),
+        ),
       ),
       navigationBarTheme: const NavigationBarThemeData(
         indicatorColor: Colors.transparent,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+        labelBehavior:
+            NavigationDestinationLabelBehavior.alwaysShow,
       ),
       splashFactory: InkSparkle.splashFactory,
       pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.android: ZoomPageTransitionsBuilder(),
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.windows: ZoomPageTransitionsBuilder(),
-          TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-        },
+        
       ),
     );
   }
 }
 
 
+/// A widget that creates a gradient border around its child.
 class GradientBorder extends StatelessWidget {
-  const GradientBorder({super.key, required this.child, this.gradient, this.radius = AppTokens.radius});
+  /// Creates a gradient border widget.
+  const GradientBorder({
+    required this.child,
+    super.key,
+    this.gradient,
+    this.radius = AppTokens.radius,
+  });
+  
+  /// The child widget to wrap with a gradient border.
   final Widget child;
+  /// The gradient to use for the border. Defaults to [AppTokens.perfGradient].
   final Gradient? gradient;
+  /// The border radius. Defaults to [AppTokens.radius].
   final double radius;
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ class HomeScreen extends ConsumerWidget {
         // Refresh activity data
         ref.invalidate(activityTodayProvider);
         ref.invalidate(featuredProgramsProvider);
-        ref.invalidate(profileProvider);
+        ref.invalidate(profileStreamProvider);
         // Wait a bit for the providers to refresh
         await Future.delayed(const Duration(milliseconds: 500));
       },
@@ -38,7 +38,7 @@ class HomeScreen extends ConsumerWidget {
               loading: () => const Text('Today'),
               error: (_, __) => const Text('Today'),
               data: (profileData) {
-                final name = profileData?['full_name']?.toString().split(' ').first ?? 
+                final name = profileData?.fullName?.split(' ').first ?? 
                            authRepo.currentUser?.email?.split('@').first ?? 
                            'User';
                 return Text('Hello, $name');
@@ -51,12 +51,12 @@ class HomeScreen extends ConsumerWidget {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.all(24),
                     child: GestureDetector(
                       onTap: () => context.go('/train'),
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           ProgressRing(progress: 0.68, size: 72),
                           SizedBox(width: 16),
                           Text('Resume session', style: TextStyle(fontWeight: FontWeight.bold)),
@@ -94,7 +94,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 data: (activity) => MetricTile(
                   title: 'Steps',
-                  value: activity?.steps.toString() ?? '0',
+                  value: activity.steps.toString() ?? '0',
                   icon: Icons.directions_walk,
                   color: Colors.blue,
                   onTap: () => context.go('/activity'),
@@ -115,7 +115,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 data: (activity) => MetricTile(
                   title: 'Calories',
-                  value: activity?.calories.toString() ?? '0',
+                  value: activity.calories.toString() ?? '0',
                   icon: Icons.local_fire_department,
                   color: Colors.orange,
                   onTap: () => context.go('/nutrition'),
@@ -135,7 +135,7 @@ class HomeScreen extends ConsumerWidget {
                   color: Colors.green,
                 ),
                 data: (activity) {
-                  final distance = activity?.distance ?? 0.0;
+                  final distance = activity.distance ?? 0.0;
                   return MetricTile(
                     title: 'Distance',
                     value: '${distance.toStringAsFixed(1)} km',
@@ -159,7 +159,7 @@ class HomeScreen extends ConsumerWidget {
                   color: Colors.purple,
                 ),
                 data: (activity) {
-                  final activeMinutes = activity?.activeMinutes ?? 0;
+                  final activeMinutes = activity.activeMinutes ?? 0;
                   return MetricTile(
                     title: 'Active Time',
                     value: '$activeMinutes min',
@@ -177,7 +177,7 @@ class HomeScreen extends ConsumerWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16),
             child: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(

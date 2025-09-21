@@ -1,4 +1,4 @@
-import 'package:fitai/gps_repository.dart';
+import 'package:fitai/features/gps/gps_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 

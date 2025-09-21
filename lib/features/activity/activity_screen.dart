@@ -41,35 +41,26 @@ class ActivityScreen extends ConsumerWidget {
                   children: [
                     Icon(Icons.error_outline, color: Colors.red),
                     SizedBox(width: 8),
-                    Text('Failed to load activity data', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Failed to load activity data',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 8),
                 Text('Error: $e', style: TextStyle(color: Colors.red[700])),
                 const SizedBox(height: 8),
-                Text('Please check your connection and try again.', style: TextStyle(color: Colors.red[700])),
+                Text(
+                  'Please check your connection and try again.',
+                  style: TextStyle(color: Colors.red[700]),
+                ),
               ],
             ),
           ),
           data: (d) {
-            if (d == null) {
-              return Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.orange.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.orange.withOpacity(0.3)),
-                ),
-                child: Column(
-                  children: [
-                    const Icon(Icons.info_outline, color: Colors.orange),
-                    const SizedBox(height: 8),
-                    const Text('No activity data for today', style: TextStyle(color: Colors.orange)),
-                    Text('Start moving to see your stats!', style: TextStyle(color: Colors.orange[700])),
-                  ],
-                ),
-              );
-            }
             return Wrap(
               spacing: 12,
               runSpacing: 12,
@@ -89,7 +80,9 @@ class ActivityScreen extends ConsumerWidget {
                     title: 'Heart Rate',
                     value: '—',
                     icon: Icons.favorite,
-                    gradient: LinearGradient(colors: [AppTokens.neonCoral, AppTokens.neonMagenta]),
+                    gradient: LinearGradient(
+                      colors: [AppTokens.neonCoral, AppTokens.neonMagenta],
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -101,7 +94,7 @@ class ActivityScreen extends ConsumerWidget {
                     color: Colors.orange,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 160,
                   child: MetricTile(
                     title: 'Distance',

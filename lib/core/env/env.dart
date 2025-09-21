@@ -4,10 +4,20 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-enum Env { dev, stg, prod }
+/// Environment configuration enum.
+enum Env { 
+  /// Development environment.
+  dev, 
+  /// Staging environment.
+  stg, 
+  /// Production environment.
+  prod 
+}
 
+/// Configuration class that holds environment-specific settings.
 class EnvConfig {
 
+  /// Creates an [EnvConfig] instance with the required configuration values.
   const EnvConfig({
     required this.env,
     required this.supabaseUrl,
@@ -19,18 +29,41 @@ class EnvConfig {
     required this.oauthRedirectUri,
     required this.webRedirectUrl,
   });
+  
+  /// The current environment.
   final Env env;
+  
+  /// The Supabase project URL.
   final String supabaseUrl;
+  
+  /// The Supabase anonymous key.
   final String supabaseAnonKey;
+  
+  /// The RevenueCat API key.
   final String revenuecatApiKey;
+  
+  /// The Stripe publishable key.
   final String stripePublishableKey;
+  
+  /// The Stripe price ID for subscriptions.
   final String stripePriceId;
+  
+  /// The Google Maps API key.
   final String mapsApiKey;
+  
+  /// The OAuth redirect URI.
   final String oauthRedirectUri;
+  
+  /// The web redirect URL.
   final String webRedirectUrl;
 
+  /// Loads the environment configuration from the appropriate .env file.
+  /// 
+  /// If [override] is provided, it will be used instead of the environment variable.
   static Future<EnvConfig> load([Env? override]) async {
-    final fallback = _fromString(const String.fromEnvironment('ENV', defaultValue: 'dev'));
+    final fallback = _fromString(
+      const String.fromEnvironment('ENV', defaultValue: 'dev'),
+    );
     final env = override ?? fallback;
     final file = switch (env) {
       Env.dev => '.env.dev',
@@ -63,9 +96,29 @@ class EnvConfig {
     }
   }
 
+  /// Returns true if running on web platform.
   bool get isWeb => kIsWeb;
+  
+  /// Returns true if running on Android platform.
   bool get isAndroid => !kIsWeb && Platform.isAndroid;
+  
+  /// Returns true if running on iOS platform.
   bool get isIOS => !kIsWeb && Platform.isIOS;
 }
 
-final envProvider = Provider<EnvConfig>((ref) => throw UnimplementedError());
+/// Provider for the environment configuration.
+/// This is an async provider that loads the configuration from .env files.
+final envProvider = FutureProvider<EnvConfig>((ref) async {
+  return await EnvConfig.load();
+});
+
+/// Synchronous provider for the environment configuration.
+/// This should only be used after the async provider has loaded successfully.
+final envConfigProvider = Provider<EnvConfig>((ref) {
+  final envAsync = ref.watch(envProvider);
+  return envAsync.when(
+    data: (config) => config,
+    loading: () => throw StateError('Environment configuration is still loading'),
+    error: (error, stack) => throw StateError('Failed to load environment configuration: $error'),
+  );
+});

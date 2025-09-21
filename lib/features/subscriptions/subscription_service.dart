@@ -10,14 +10,29 @@ class SubscriptionService {
 
   Future<void> init() async {
     if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-      await Purchases.configure(PurchasesConfiguration(_env.revenuecatApiKey)..appUserID = null);
+      try {
+        await Purchases.configure(PurchasesConfiguration(_env.revenuecatApiKey)..appUserID = null);
+      } catch (e) {
+        if (kDebugMode) {
+          print('RevenueCat initialization failed (development mode): $e');
+        }
+        // Continue without RevenueCat in development/testing environments
+      }
     }
   }
 
   Future<bool> isPro() async {
     if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
-      final info = await Purchases.getCustomerInfo();
-      return info.entitlements.active.isNotEmpty;
+      try {
+        final info = await Purchases.getCustomerInfo();
+        return info.entitlements.active.isNotEmpty;
+      } catch (e) {
+        if (kDebugMode) {
+          print('RevenueCat customer info failed (development mode): $e');
+        }
+        // Return false in development/testing environments when RevenueCat fails
+        return false;
+      }
     }
     return false;
   }

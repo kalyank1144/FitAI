@@ -11,7 +11,7 @@ class ActivityToday {
 }
 
 class ActivityRepository {
-  final _client = Supabase.instance.client;
+  final SupabaseClient _client = Supabase.instance.client;
   Stream<ActivityToday> watchToday() {
     final today = DateTime.now().toUtc().toIso8601String().substring(0, 10);
     return _client
@@ -35,9 +35,9 @@ class ActivityRepository {
     });
   }
 
-  Stream<List<Map<String, dynamic>>> watchGps() => _client.from('gps_sessions').stream(primaryKey: ['id']).order('started_at', ascending: false).limit(20);
+  Stream<List<Map<String, dynamic>>> watchGps() => _client.from('gps_sessions').stream(primaryKey: ['id']).order('started_at').limit(20);
 }
 
-final activityRepoProvider = Provider((_) => ActivityRepository());
+final Provider<ActivityRepository> activityRepoProvider = Provider((_) => ActivityRepository());
 final activityTodayProvider = StreamProvider<ActivityToday>((ref) => ref.read(activityRepoProvider).watchToday());
 final gpsStreamProvider = StreamProvider<List<Map<String, dynamic>>>((ref) => ref.read(activityRepoProvider).watchGps());

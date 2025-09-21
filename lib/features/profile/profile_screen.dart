@@ -1,184 +1,438 @@
-import 'package:fitai/core/messaging/messaging_service.dart';
-import 'package:fitai/features/activity/data/activity_repository.dart';
-import 'package:fitai/features/auth/data/auth_repository.dart';
-import 'package:fitai/features/profile/data/profile_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons/lucide_icons.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'data/profile_repository.dart';
+import 'profile_edit_screen.dart';
+import 'account_settings_screen.dart';
+import 'preferences_screen.dart';
+import 'progress_tracking_screen.dart';
+import 'data_management_screen.dart';
+import '../auth/data/auth_repository.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
+
+  String _getGoalDisplayText(String? goal) {
+    switch (goal) {
+      case 'lose':
+        return 'Lose Weight';
+      case 'maintain':
+        return 'Maintain';
+      case 'gain':
+        return 'Gain Weight';
+      case 'muscle':
+        return 'Build Muscle';
+      case 'endurance':
+        return 'Endurance';
+      default:
+        return 'Not Set';
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final token = ref.watch(fcmTokenProvider);
-    final authRepo = ref.read(authRepositoryProvider);
-    final profile = ref.watch(profileStreamProvider);
-    final activityToday = ref.watch(activityTodayProvider);
-    
+    final authRepo = ref.watch(authRepositoryProvider);
+    final profileState = ref.watch(profileStreamProvider);
+    final currentUser = authRepo.currentUser;
+
+    return Scaffold(
+      backgroundColor: Colors.grey[50],
+      appBar: AppBar(
+        title: const Text('Profile'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        foregroundColor: Colors.black,
+      ),
+      body: currentUser != null
+          ? _buildProfileContent(context, profileState, ref)
+          : _buildNotLoggedInState(context),
+    );
+  }
+
+  Widget _buildProfileContent(BuildContext context, AsyncValue<UserProfile?> profileState, WidgetRef ref) {
+    return profileState.when(
+      data: (profile) => profile != null
+          ? _buildProfileData(context, profile, ref)
+          : _buildNoProfileState(context),
+      loading: () => _buildLoadingState(),
+      error: (error, stack) => _buildErrorState(context, 'Error loading profile: ${error.toString()}', ref),
+    );
+  }
+
+  Widget _buildLoadingState() {
+    return const Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(),
+          SizedBox(height: 16),
+          Text(
+            'Loading profile...',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildErrorState(BuildContext context, String error, [WidgetRef? ref]) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              LucideIcons.alertCircle,
+              size: 64,
+              color: Colors.red[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Something went wrong',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              error,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton.icon(
+              onPressed: ref != null ? () {
+                ref.invalidate(profileStreamProvider);
+                ref.invalidate(authRepositoryProvider);
+              } : null,
+              icon: const Icon(LucideIcons.refreshCw),
+              label: const Text('Retry'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNotLoggedInState(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              LucideIcons.userX,
+              size: 64,
+              color: Colors.grey[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Not Logged In',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Please log in to view your profile',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNoProfileState(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              LucideIcons.user,
+              size: 64,
+              color: Colors.grey[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'No Profile Data',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Complete your profile to get started',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileEditScreen(),
+                  ),
+                );
+              },
+              icon: const Icon(LucideIcons.userPlus),
+              label: const Text('Create Profile'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProfileData(BuildContext context, UserProfile profile, WidgetRef ref) {
     return ListView(
-      padding: const EdgeInsets.all(16),
       children: [
         // Profile Header Card
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.04),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: profile.when(
-            loading: () => const Column(
+        Card(
+          margin: const EdgeInsets.all(16),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
               children: [
-                CircleAvatar(
-                  radius: 40,
-                  child: CircularProgressIndicator(),
-                ),
-                SizedBox(height: 12),
-                Text('Loading profile...'),
-              ],
-            ),
-            error: (e, _) => Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.red.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.red.withOpacity(0.3)),
-              ),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    backgroundColor: Colors.red,
-                    child: Icon(Icons.error_outline, color: Colors.white),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Profile Error',
-                          style: TextStyle(color: Colors.red, fontWeight: FontWeight.w500),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProfileEditScreen(),
+                      ),
+                    );
+                  },
+                  child: Stack(
+                    children: [
+                       CircleAvatar(
+                         radius: 40,
+                         backgroundColor: Colors.grey[300],
+                         backgroundImage: profile.avatarUrl != null
+                             ? CachedNetworkImageProvider(profile.avatarUrl!)
+                             : null,
+                         child: profile.avatarUrl == null
+                             ? const Icon(
+                                 LucideIcons.user,
+                                 size: 32,
+                               )
+                             : null,
+                       ),
+                       Positioned(
+                         bottom: 0,
+                         right: 0,
+                         child: Container(
+                           padding: const EdgeInsets.all(4),
+                           decoration: BoxDecoration(
+                             color: Theme.of(context).primaryColor,
+                             shape: BoxShape.circle,
+                           ),
+                           child: const Icon(
+                             LucideIcons.edit2,
+                             size: 12,
+                             color: Colors.white,
+                           ),
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+                 const SizedBox(height: 12),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProfileEditScreen(),
+                      ),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      Text(
+                        profile.fullName ?? 'Tap to set name',
+                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
                         ),
-                        Text(
-                          'Failed to load profile: $e',
-                          style: const TextStyle(color: Colors.red),
+                      ),
+                      Text(
+                        profile.gender ?? 'Not specified',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Colors.grey[600],
                         ),
-                      ],
-                    ),
+                      ),
+                      if (profile.bio != null && profile.bio!.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Text(
+                            profile.bio!,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: Colors.grey[700],
+                              fontStyle: FontStyle.italic,
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            data: (profileData) => Column(
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: profileData?['avatar_url'] != null 
-                    ? NetworkImage(profileData!['avatar_url']) 
-                    : null,
-                  child: profileData?['avatar_url'] == null 
-                    ? const Icon(Icons.person, size: 40) 
-                    : null,
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  profileData?['full_name'] ?? authRepo.currentUser?.email?.split('@').first ?? 'User',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  authRepo.currentUser?.email ?? '',
-                  style: TextStyle(color: Colors.grey[400]),
                 ),
                 const SizedBox(height: 16),
-                // Today's Stats
-                activityToday.when(
-                  loading: () => const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _StatItem(label: 'Steps', value: '---', icon: Icons.directions_walk),
-                      _StatItem(label: 'Calories', value: '---', icon: Icons.local_fire_department),
-                      _StatItem(label: 'Distance', value: '---', icon: Icons.route),
-                    ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _StatItem(
+                    icon: LucideIcons.scale,
+                    label: 'Weight',
+                    value: profile.weight != null ? '${profile.weight} kg' : '--',
                   ),
-                  error: (e, _) => const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _StatItem(label: 'Steps', value: 'Error', icon: Icons.directions_walk),
-                      _StatItem(label: 'Calories', value: 'Error', icon: Icons.local_fire_department),
-                      _StatItem(label: 'Distance', value: 'Error', icon: Icons.route),
-                    ],
+                  _StatItem(
+                    icon: LucideIcons.ruler,
+                    label: 'Height',
+                    value: profile.height != null ? '${profile.height} cm' : '--',
                   ),
-                  data: (activity) => Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _StatItem(
-                        label: 'Steps', 
-                        value: activity?.steps?.toString() ?? '0', 
-                        icon: Icons.directions_walk,
-                      ),
-                      _StatItem(
-                        label: 'Calories', 
-                        value: activity?.calories?.toInt().toString() ?? '0', 
-                        icon: Icons.local_fire_department,
-                      ),
-                      _StatItem(
-                        label: 'Distance', 
-                        value: '0.0 km', 
-                        icon: Icons.route,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const Divider(),
-        const ListTile(title: Text('Goals'), subtitle: Text('Set your goals')),
-        const ListTile(title: Text('Preferences'), subtitle: Text('Units, theme')),
-        const ListTile(title: Text('Devices'), subtitle: Text('Connect wearables')),
-        const ListTile(title: Text('Subscription'), subtitle: Text('Manage plan')),
-        ListTile(
-          title: const Text('Notifications'),
-          subtitle: Text(token ?? 'Request permission and fetch token'),
-          trailing: FilledButton(
-            onPressed: () async {
-              final t = await MessagingService().requestAndGetToken(ref);
-              if (t != null) {
-                await saveFcmToken(t);
-              }
-            },
-            child: const Text('Enable'),
-          ),
-        ),
-        const Divider(),
-        ListTile(
-          leading: const Icon(Icons.logout, color: Colors.red),
-          title: const Text('Sign Out', style: TextStyle(color: Colors.red)),
-          onTap: () async {
-            final shouldSignOut = await showDialog<bool>(
-              context: context,
-              builder: (context) => AlertDialog(
-                title: const Text('Sign Out'),
-                content: const Text('Are you sure you want to sign out?'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(false),
-                    child: const Text('Cancel'),
-                  ),
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(true),
-                    child: const Text('Sign Out'),
+                  _StatItem(
+                    icon: LucideIcons.target,
+                    label: 'Goal',
+                    value: _getGoalDisplayText(profile.fitnessGoal),
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+        ),
+        const SizedBox(height: 16),
+        
+        // List Items
+        ListTile(
+          leading: const Icon(LucideIcons.target),
+          title: const Text('Progress Tracking'),
+          trailing: const Icon(LucideIcons.chevronRight),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ProgressTrackingScreen(),
+              ),
             );
-            
-            if (shouldSignOut == true) {
-              await authRepo.signOut();
-            }
           },
+        ),
+        ListTile(
+          leading: const Icon(LucideIcons.settings),
+          title: const Text('Preferences'),
+          trailing: const Icon(LucideIcons.chevronRight),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const PreferencesScreen(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          leading: const Icon(LucideIcons.database),
+          title: const Text('Data Management'),
+          trailing: const Icon(LucideIcons.chevronRight),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const DataManagementScreen(),
+              ),
+            );
+          },
+        ),
+        ListTile(
+          leading: const Icon(LucideIcons.creditCard),
+          title: const Text('Subscription'),
+          trailing: const Icon(LucideIcons.chevronRight),
+          onTap: () {
+            // Navigate to subscription screen
+          },
+        ),
+        ListTile(
+          leading: const Icon(LucideIcons.userCog),
+          title: const Text('Account Settings'),
+          trailing: const Icon(LucideIcons.chevronRight),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const AccountSettingsScreen(),
+              ),
+            );
+          },
+        ),
+        const SizedBox(height: 16),
+        
+        // Sign Out Button
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ElevatedButton(
+            onPressed: () async {
+              final shouldSignOut = await showDialog<bool>(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Sign Out'),
+                  content: const Text('Are you sure you want to sign out?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(false),
+                      child: const Text('Cancel'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(true),
+                      child: const Text('Sign Out'),
+                    ),
+                  ],
+                ),
+              );
+              
+              if (shouldSignOut == true) {
+                try {
+                  await ref.read(authRepositoryProvider).signOut();
+                  if (context.mounted) {
+                    Navigator.of(context).pushReplacementNamed('/signin');
+                  }
+                } catch (e) {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Failed to sign out: ${e.toString()}'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                }
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Sign Out'),
+          ),
         ),
       ],
     );
@@ -186,38 +440,32 @@ class ProfileScreen extends ConsumerWidget {
 }
 
 class _StatItem extends StatelessWidget {
-
   const _StatItem({
+    required this.icon,
     required this.label,
     required this.value,
-    required this.icon,
   });
+
+  final IconData icon;
   final String label;
   final String value;
-  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Icon(
-          icon,
-          size: 24,
-          color: Colors.blue,
-        ),
+        Icon(icon, size: 24, color: Theme.of(context).primaryColor),
         const SizedBox(height: 4),
         Text(
           value,
-          style: const TextStyle(
-            fontSize: 16,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           label,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey[400],
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Colors.grey[600],
           ),
         ),
       ],

@@ -45,7 +45,7 @@ class _RemindersScreenState extends State<RemindersScreen> {
   }
 
   Future<void> schedule() async {
-    final details = const NotificationDetails(
+    const details = NotificationDetails(
       android: AndroidNotificationDetails('reminders', 'Reminders', importance: Importance.high),
       iOS: DarwinNotificationDetails(),
     );

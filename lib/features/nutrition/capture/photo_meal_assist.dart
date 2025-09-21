@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:fitai/services/photo_meal_ai_service.dart';
+import 'package:fitai/features/nutrition/services/photo_meal_ai_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -22,7 +22,7 @@ class _PhotoMealAssistPageState extends State<PhotoMealAssistPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Meal Photo')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(children: [
           Row(children: [
             FilledButton.icon(onPressed: _pick, icon: const Icon(Icons.photo_camera_rounded), label: const Text('Pick photo')),

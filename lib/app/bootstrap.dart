@@ -18,6 +18,10 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+/// Bootstraps the application with the given environment configuration.
+/// 
+/// This function initializes all necessary services including Firebase,
+/// Supabase, notifications, and error handling.
 Future<void> bootstrap(Env env) async {
   // Initialize Flutter bindings within the zone for web compatibility
   runZonedGuarded(() async {
@@ -37,11 +41,18 @@ Future<void> bootstrap(Env env) async {
       await MessagingService().init();
     }
     
-    await SubscriptionService(config).init();
+    try {
+      await SubscriptionService(config).init();
+    } catch (e) {
+      if (kDebugMode) {
+        debugPrint('SubscriptionService initialization failed: $e');
+      }
+      // Continue app initialization even if subscription service fails
+    }
 
     final container = ProviderContainer(
       overrides: [
-        envProvider.overrideWithValue(config),
+        envProvider.overrideWith((ref) => Future.value(config)),
         analyticsProvider.overrideWithValue(AnalyticsService()),
       ],
     );
@@ -78,7 +89,8 @@ Future<void> _initFirebase() async {
     );
     
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-    await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
+    await FirebaseMessaging.instance
+        .setForegroundNotificationPresentationOptions(
       alert: true,
       badge: true,
       sound: true,
@@ -122,10 +134,15 @@ Future<void> _initLocalNotifications() async {
     description: 'Workout and streak reminders',
     importance: Importance.high,
   );
-  await plugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+  await plugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 }
 
+/// Provider for Firebase Analytics instance.
+/// 
+/// Returns null on web if Firebase Analytics is not properly configured.
 final firebaseAnalyticsProvider = Provider<FirebaseAnalytics?>((ref) {
   try {
     // Skip Firebase Analytics on web if not properly configured

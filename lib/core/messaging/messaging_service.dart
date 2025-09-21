@@ -2,10 +2,15 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// Provider for storing the FCM token state.
 final fcmTokenProvider = StateProvider<String?>((_) => null);
 
+/// Service for handling Firebase Cloud Messaging operations.
 class MessagingService {
-  final _fm = FirebaseMessaging.instance;
+  /// Firebase Messaging instance.
+  final FirebaseMessaging _fm = FirebaseMessaging.instance;
+  
+  /// Initializes the messaging service and requests permissions.
   Future<void> init() async {
     try {
       await _fm.requestPermission();
@@ -16,6 +21,9 @@ class MessagingService {
     }
   }
 
+  /// Requests permission and gets the FCM token, storing it in the provider.
+  /// 
+  /// Returns the FCM token if successful, null otherwise.
   Future<String?> requestAndGetToken(WidgetRef ref) async {
     try {
       await _fm.requestPermission();

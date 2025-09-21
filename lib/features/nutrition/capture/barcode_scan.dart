@@ -24,7 +24,7 @@ class _BarcodeScanPageState extends State<BarcodeScanPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16),
               child: Card(child: Padding(padding: const EdgeInsets.all(12), child: Text('Scanned: $code'))),
             ),
           ),

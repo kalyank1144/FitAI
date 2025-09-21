@@ -1,0 +1,500 @@
+Analyzing FitAI...                                              
+
+   info • Missing documentation for a public member • lib/app/app.dart:6:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/app/app.dart:7:9 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/app/app.dart:17:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/app/bootstrap.dart:21:14 • public_member_api_docs
+   info • Missing an 'await' for the 'Future' computed by this expression • lib/app/bootstrap.dart:23:3 • unawaited_futures
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/app/bootstrap.dart:42:7 • avoid_catches_without_on_clauses
+   info • The line length exceeds the 80-character limit • lib/app/bootstrap.dart:88:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/app/bootstrap.dart:93:5 • avoid_catches_without_on_clauses
+   info • The line length exceeds the 80-character limit • lib/app/bootstrap.dart:132:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/app/bootstrap.dart:136:7 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/app/bootstrap.dart:143:5 • avoid_catches_without_on_clauses
+   info • Missing a newline at the end of the file • lib/app/bootstrap.dart:146:4 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:8:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:9:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:10:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:11:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:12:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:13:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:14:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:15:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:16:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:17:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:18:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:19:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:20:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:21:8 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:23:8 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/core/analytics/analytics.dart:35:7 • avoid_catches_without_on_clauses
+   info • Missing documentation for a public member • lib/core/analytics/analytics.dart:41:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/analytics/analytics.dart:41:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/core/analytics/analytics.dart:41:83 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:6:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/components/metric_tile.dart:6:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:7:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:8:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:9:19 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:10:19 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:11:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/metric_tile.dart:12:23 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/components/metric_tile.dart:31:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/core/components/metric_tile.dart:35:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/core/components/metric_tile.dart:42:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/components/neon_focus.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/neon_focus.dart:5:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/neon_focus.dart:6:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/components/neon_focus.dart:14:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/core/components/neon_focus.dart:20:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/components/progress_ring.dart:6:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/progress_ring.dart:7:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/progress_ring.dart:8:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/components/progress_ring.dart:9:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/components/progress_ring.dart:15:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/core/components/progress_ring.dart:22:81 • lines_longer_than_80_chars
+   info • Unnecessary duplication of receiver • lib/core/components/progress_ring.dart:72:5 • cascade_invocations
+   info • The line length exceeds the 80-character limit • lib/core/components/progress_ring.dart:72:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/core/components/progress_ring.dart:76:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/core/components/progress_ring.dart:77:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/env/env.dart:7:6 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:7:12 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:7:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:7:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:9:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:11:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:22:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:23:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:24:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:25:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:26:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:27:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:28:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:29:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:30:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:32:28 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/env/env.dart:33:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/core/env/env.dart:66:12 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:67:12 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:68:12 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/env/env.dart:71:7 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/core/env/env.dart:71:78 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/messaging/firebase_background.dart:5:14 • public_member_api_docs
+   info • Missing documentation explaining why the diagnostic is ignored • lib/core/messaging/firebase_background.dart:7:5 • document_ignores
+   info • Missing a newline at the end of the file • lib/core/messaging/firebase_background.dart:10:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/messaging/messaging_service.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/messaging/messaging_service.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/messaging/messaging_service.dart:9:16 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/core/messaging/messaging_service.dart:14:7 • avoid_catches_without_on_clauses
+   info • Missing documentation for a public member • lib/core/messaging/messaging_service.dart:19:19 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/core/messaging/messaging_service.dart:25:7 • avoid_catches_without_on_clauses
+   info • Missing a newline at the end of the file • lib/core/messaging/messaging_service.dart:30:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/storage/local_db.dart:3:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/storage/local_db.dart:5:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/storage/local_db.dart:6:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/storage/local_db.dart:8:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/storage/local_db.dart:17:19 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/core/storage/local_db.dart:21:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:5:20 • public_member_api_docs
+   info • 'background' is deprecated and shouldn't be used. Use surface instead. This feature was deprecated after v3.18.0-0.1.pre • lib/core/theme/app_theme.dart:10:7 • deprecated_member_use
+   info • 'onBackground' is deprecated and shouldn't be used. Use onSurface instead. This feature was deprecated after v3.18.0-0.1.pre • lib/core/theme/app_theme.dart:15:7 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/core/theme/app_theme.dart:25:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:40:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:41:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/theme/app_theme.dart:41:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:42:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:43:19 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/app_theme.dart:44:16 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/core/theme/app_theme.dart:62:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:3:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:4:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:5:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:6:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:7:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:8:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:9:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:10:22 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:12:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:13:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:14:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:16:23 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:17:23 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:18:23 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:20:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:25:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/core/theme/tokens.dart:32:11 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/core/theme/tokens.dart:34:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/core/theme/tokens.dart:35:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/core/theme/tokens.dart:36:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/core/theme/tokens.dart:50:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/activity/activity_screen.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/activity_screen.dart:8:9 • public_member_api_docs
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:33:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:35:52 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:44:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:50:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:74:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:103:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:131:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:133:58 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:137:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:153:44 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:158:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/activity/activity_screen.dart:177:42 • avoid_dynamic_calls
+   info • Method invocation or property access on a 'dynamic' target • lib/features/activity/activity_screen.dart:177:43 • avoid_dynamic_calls
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:178:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/activity/activity_screen.dart:186:27 • avoid_catches_without_on_clauses
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:195:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/activity/activity_screen.dart:203:53 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:219:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:224:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:228:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:231:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/activity/activity_screen.dart:235:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/activity/activity_screen.dart:255:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:5:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/activity/data/activity_repository.dart:5:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:6:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:7:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:8:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:9:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:10:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:13:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:15:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:38:38 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/activity/data/activity_repository.dart:38:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:41:36 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/activity/data/activity_repository.dart:41:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:42:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/activity/data/activity_repository.dart:42:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/activity/data/activity_repository.dart:43:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/activity/data/activity_repository.dart:43:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/activity/data/activity_repository.dart:43:122 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:8:3 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:13:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/auth/data/auth_repository.dart:15:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:18:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/auth/data/auth_repository.dart:20:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:23:24 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:30:24 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:37:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:41:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:42:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/auth/data/auth_repository.dart:42:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:44:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:48:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:49:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_repository.dart:52:7 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/auth/data/auth_repository.dart:55:4 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/auth/data/auth_state.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/data/auth_state.dart:9:7 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/auth/data/auth_state.dart:12:4 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:8:6 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:8:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:8:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:8:33 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:10:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/auth/ui/sign_in_screen.dart:11:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/auth/ui/sign_in_screen.dart:83:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/auth/ui/sign_in_screen.dart:97:7 • avoid_catches_without_on_clauses
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/auth/ui/sign_in_screen.dart:121:7 • avoid_catches_without_on_clauses
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/auth/ui/sign_in_screen.dart:145:7 • avoid_catches_without_on_clauses
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:192:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:203:48 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:220:41 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/auth/ui/sign_in_screen.dart:252:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/auth/ui/sign_in_screen.dart:271:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/auth/ui/sign_in_screen.dart:284:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/auth/ui/sign_in_screen.dart:312:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:344:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:372:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:379:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:384:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/auth/ui/sign_in_screen.dart:441:50 • deprecated_member_use
+   info • Missing a newline at the end of the file • lib/features/auth/ui/sign_in_screen.dart:517:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/gps/gps_repository.dart:3:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/gps/gps_repository.dart:4:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/gps/gps_repository.dart:10:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/gps/gps_repository.dart:13:20 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/gps/gps_repository.dart:14:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/gps/start_outdoor_session_screen.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/gps/start_outdoor_session_screen.dart:6:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/gps/start_outdoor_session_screen.dart:8:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/gps/start_outdoor_session_screen.dart:30:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/gps/start_outdoor_session_screen.dart:33:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/health/health_repository.dart:6:7 • public_member_api_docs
+  error • Undefined class 'HealthFactory' • lib/features/health/health_repository.dart:7:9 • undefined_class
+  error • The method 'HealthFactory' isn't defined for the type 'HealthRepository' • lib/features/health/health_repository.dart:7:33 • undefined_method
+   info • Missing documentation for a public member • lib/features/health/health_repository.dart:9:12 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/health/health_repository.dart:11:16 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/health/health_repository.dart:17:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/home/home_screen.dart:12:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/home/home_screen.dart:13:9 • public_member_api_docs
+   info • Unnecessary duplication of receiver • lib/features/home/home_screen.dart:26:9 • cascade_invocations
+   info • Unnecessary duplication of receiver • lib/features/home/home_screen.dart:27:9 • cascade_invocations
+warning • The type argument(s) of the constructor 'Future.delayed' can't be inferred • lib/features/home/home_screen.dart:29:15 • inference_failure_on_instance_creation
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:39:26 • unnecessary_underscores
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:41:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:50:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:62:81 • lines_longer_than_80_chars
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:89:28 • unnecessary_underscores
+warning • Dead code • lib/features/home/home_screen.dart:97:52 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/features/home/home_screen.dart:97:55 • dead_null_aware_expression
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:110:28 • unnecessary_underscores
+warning • Dead code • lib/features/home/home_screen.dart:118:55 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/features/home/home_screen.dart:118:58 • dead_null_aware_expression
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:131:28 • unnecessary_underscores
+warning • Dead code • lib/features/home/home_screen.dart:138:54 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/features/home/home_screen.dart:138:57 • dead_null_aware_expression
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:155:28 • unnecessary_underscores
+warning • Dead code • lib/features/home/home_screen.dart:162:64 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/features/home/home_screen.dart:162:67 • dead_null_aware_expression
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:176:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/home/home_screen.dart:184:37 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/home/home_screen.dart:186:62 • deprecated_member_use
+   info • Method invocation or property access on a 'dynamic' target • lib/features/home/home_screen.dart:219:55 • avoid_dynamic_calls
+  error • The argument type 'dynamic' can't be assigned to the parameter type 'String'.  • lib/features/home/home_screen.dart:219:55 • argument_type_not_assignable
+   info • Method invocation or property access on a 'dynamic' target • lib/features/home/home_screen.dart:219:80 • avoid_dynamic_calls
+  error • The argument type 'dynamic' can't be assigned to the parameter type 'String?'.  • lib/features/home/home_screen.dart:219:80 • argument_type_not_assignable
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:219:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:246:81 • lines_longer_than_80_chars
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:246:100 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/home_screen.dart:246:104 • unnecessary_underscores
+   info • The line length exceeds the 80-character limit • lib/features/home/home_screen.dart:251:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/home/home_screen.dart:258:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/notifications/reminders_screen.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/notifications/reminders_screen.dart:5:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/notifications/reminders_screen.dart:37:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/notifications/reminders_screen.dart:49:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/notifications/reminders_screen.dart:53:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/notifications/reminders_screen.dart:54:81 • lines_longer_than_80_chars
+  error • The argument type 'DateTime' can't be assigned to the parameter type 'TZDateTime'.  • lib/features/notifications/reminders_screen.dart:60:7 • argument_type_not_assignable
+  error • The named parameter 'uiLocalNotificationDateInterpretation' isn't defined • lib/features/notifications/reminders_screen.dart:63:7 • undefined_named_parameter
+  error • Undefined name 'UILocalNotificationDateInterpretation' • lib/features/notifications/reminders_screen.dart:63:46 • undefined_identifier
+   info • The line length exceeds the 80-character limit • lib/features/notifications/reminders_screen.dart:63:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/notifications/reminders_screen.dart:67:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/capture/barcode_scan.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/capture/barcode_scan.dart:5:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/capture/barcode_scan.dart:28:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/nutrition/capture/barcode_scan.dart:34:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/capture/photo_meal_assist.dart:8:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/capture/photo_meal_assist.dart:9:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/capture/photo_meal_assist.dart:28:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/capture/photo_meal_assist.dart:30:81 • lines_longer_than_80_chars
+  error • The method 'readAsBytesSync' isn't defined for the type 'XFile' • lib/features/nutrition/capture/photo_meal_assist.dart:43:30 • undefined_method
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/capture/photo_meal_assist.dart:52:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/nutrition/capture/photo_meal_assist.dart:53:7 • avoid_catches_without_on_clauses
+   info • Missing a newline at the end of the file • lib/features/nutrition/capture/photo_meal_assist.dart:55:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:5:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:5:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:6:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:7:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:8:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:9:13 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:12:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:15:27 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:42:38 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:50:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/data/nutrition_repository.dart:62:16 • avoid_dynamic_calls
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/data/nutrition_repository.dart:62:16 • avoid_dynamic_calls
+  error • The operands of the operator '&&' must be assignable to 'bool' • lib/features/nutrition/data/nutrition_repository.dart:62:16 • non_bool_operand
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/data/nutrition_repository.dart:63:16 • avoid_dynamic_calls
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/data/nutrition_repository.dart:63:16 • avoid_dynamic_calls
+  error • The operands of the operator '&&' must be assignable to 'bool' • lib/features/nutrition/data/nutrition_repository.dart:63:16 • non_bool_operand
+   info • Unnecessary duplication of receiver • lib/features/nutrition/data/nutrition_repository.dart:67:7 • cascade_invocations
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/data/nutrition_repository.dart:67:35 • avoid_dynamic_calls
+  error • The returned type 'dynamic' isn't returnable from a 'int' function, as required by the closure's context • lib/features/nutrition/data/nutrition_repository.dart:67:35 • return_of_invalid_type_from_closure
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:72:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:72:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:88:37 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:88:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:89:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:89:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/nutrition/data/nutrition_repository.dart:90:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/data/nutrition_repository.dart:90:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/nutrition/data/nutrition_repository.dart:90:134 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/nutrition_screen.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/nutrition_screen.dart:8:9 • public_member_api_docs
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:21:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:35:35 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:37:54 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:71:81 • lines_longer_than_80_chars
+warning • The type argument(s) of the function 'showModalBottomSheet' can't be inferred • lib/features/nutrition/nutrition_screen.dart:106:23 • inference_failure_on_function_invocation
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:106:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:114:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:116:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:123:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:151:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:153:58 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:157:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:173:44 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:196:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:207:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/nutrition/nutrition_screen.dart:208:27 • avoid_catches_without_on_clauses
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:217:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:225:54 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:240:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:245:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:250:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/nutrition_screen.dart:258:44 • avoid_dynamic_calls
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:259:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/nutrition_screen.dart:263:47 • avoid_dynamic_calls
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:264:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/nutrition_screen.dart:268:47 • avoid_dynamic_calls
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:269:81 • lines_longer_than_80_chars
+   info • Method invocation or property access on a 'dynamic' target • lib/features/nutrition/nutrition_screen.dart:273:47 • avoid_dynamic_calls
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/nutrition_screen.dart:274:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/nutrition/nutrition_screen.dart:301:26 • deprecated_member_use
+   info • Missing a newline at the end of the file • lib/features/nutrition/nutrition_screen.dart:335:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/services/photo_meal_ai_service.dart:3:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/services/photo_meal_ai_service.dart:4:32 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/nutrition/services/photo_meal_ai_service.dart:8:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/nutrition/ui/quick_add.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/nutrition/ui/quick_add.dart:6:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/ui/quick_add.dart:8:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/ui/quick_add.dart:19:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/nutrition/ui/quick_add.dart:20:81 • lines_longer_than_80_chars
+   info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check • lib/features/nutrition/ui/quick_add.dart:28:49 • use_build_context_synchronously
+   info • Missing a newline at the end of the file • lib/features/nutrition/ui/quick_add.dart:35:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/onboarding/onboarding_flow.dart:4:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/onboarding/onboarding_flow.dart:5:9 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/onboarding/onboarding_flow.dart:70:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/paywall_entry.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/paywall_entry.dart:6:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/paywall_entry.dart:7:19 • public_member_api_docs
+warning • The type argument(s) of the constructor 'MaterialPageRoute' can't be inferred • lib/features/paywall_entry.dart:11:51 • inference_failure_on_instance_creation
+   info • The line length exceeds the 80-character limit • lib/features/paywall_entry.dart:11:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/paywall_entry.dart:15:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/profile/data/profile_repository.dart:4:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/profile/data/profile_repository.dart:8:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/profile/data/profile_repository.dart:11:14 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/profile/data/profile_repository.dart:13:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/profile/data/profile_repository.dart:14:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/profile/profile_screen.dart:8:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/profile/profile_screen.dart:9:9 • public_member_api_docs
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/profile/profile_screen.dart:24:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/profile/profile_screen.dart:41:35 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/profile/profile_screen.dart:43:54 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:58:81 • lines_longer_than_80_chars
+  error • The argument type 'dynamic' can't be assigned to the parameter type 'String'.  • lib/features/profile/profile_screen.dart:75:36 • argument_type_not_assignable
+  error • The argument type 'dynamic' can't be assigned to the parameter type 'String'.  • lib/features/profile/profile_screen.dart:83:19 • argument_type_not_assignable
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:83:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:99:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:100:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:101:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:107:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:108:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:109:81 • lines_longer_than_80_chars
+warning • Dead code • lib/features/profile/profile_screen.dart:117:58 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/features/profile/profile_screen.dart:117:61 • dead_null_aware_expression
+warning • The left operand can't be null, so the right operand is never executed • lib/features/profile/profile_screen.dart:122:64 • dead_null_aware_expression
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:139:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:140:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/profile/profile_screen.dart:141:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/profile/profile_screen.dart:226:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/subscriptions/paywall_screen.dart:8:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/subscriptions/paywall_screen.dart:9:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/subscriptions/paywall_screen.dart:10:19 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/subscriptions/paywall_screen.dart:28:9 • avoid_catches_without_on_clauses
+   info • The line length exceeds the 80-character limit • lib/features/subscriptions/paywall_screen.dart:45:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/subscriptions/paywall_screen.dart:55:27 • avoid_catches_without_on_clauses
+   info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check • lib/features/subscriptions/paywall_screen.dart:60:50 • use_build_context_synchronously
+   info • The line length exceeds the 80-character limit • lib/features/subscriptions/paywall_screen.dart:62:81 • lines_longer_than_80_chars
+  error • Expected an identifier • lib/features/subscriptions/paywall_screen.dart:79:66 • missing_identifier
+  error • Invalid constant value • lib/features/subscriptions/paywall_screen.dart:79:66 • invalid_constant
+   info • The line length exceeds the 80-character limit • lib/features/subscriptions/paywall_screen.dart:80:81 • lines_longer_than_80_chars
+  error • Expected an identifier • lib/features/subscriptions/paywall_screen.dart:86:66 • missing_identifier
+  error • Invalid constant value • lib/features/subscriptions/paywall_screen.dart:86:66 • invalid_constant
+   info • The line length exceeds the 80-character limit • lib/features/subscriptions/paywall_screen.dart:87:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/subscriptions/paywall_screen.dart:96:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/subscriptions/subscription_service.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/subscriptions/subscription_service.dart:8:3 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/subscriptions/subscription_service.dart:11:16 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/subscriptions/subscription_service.dart:14:81 • lines_longer_than_80_chars
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/subscriptions/subscription_service.dart:15:9 • avoid_catches_without_on_clauses
+   info • Missing documentation for a public member • lib/features/subscriptions/subscription_service.dart:24:16 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/subscriptions/subscription_service.dart:29:9 • avoid_catches_without_on_clauses
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:1:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:3:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:11:20 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:18:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:19:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:20:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:21:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise.dart:22:17 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/train/data/exercise.dart:23:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/train/data/exercise_repository.dart:8:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/exercise_repository.dart:11:26 • public_member_api_docs
+   info • Catch clause should use 'on' to specify the type of exception being caught • lib/features/train/data/exercise_repository.dart:19:7 • avoid_catches_without_on_clauses
+   info • Missing documentation explaining why the diagnostic is ignored • lib/features/train/data/exercise_repository.dart:21:9 • document_ignores
+   info • Missing documentation for a public member • lib/features/train/data/exercise_repository.dart:29:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/exercise_repository.dart:29:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/train/data/exercise_repository.dart:30:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/exercise_repository.dart:30:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/train/data/exercise_repository.dart:30:121 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:1:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:2:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/program.dart:2:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:3:19 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/program.dart:4:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:6:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:7:16 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:8:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:9:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:10:17 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program.dart:11:14 • public_member_api_docs
+   info • Missing a newline at the end of the file • lib/features/train/data/program.dart:12:2 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/train/data/program_repository.dart:5:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program_repository.dart:7:25 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/data/program_repository.dart:15:35 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/program_repository.dart:15:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/features/train/data/program_repository.dart:16:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/data/program_repository.dart:16:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/train/data/program_repository.dart:16:120 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/features/train/train_screen.dart:7:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/features/train/train_screen.dart:8:9 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:34:81 • lines_longer_than_80_chars
+   info • Unnecessary use of multiple underscores • lib/features/train/train_screen.dart:40:39 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/train/train_screen.dart:47:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/train/train_screen.dart:54:48 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:67:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:76:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:85:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/train/train_screen.dart:87:51 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:112:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:126:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:149:81 • lines_longer_than_80_chars
+   info • Unnecessary use of multiple underscores • lib/features/train/train_screen.dart:171:29 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/train/train_screen.dart:171:33 • unnecessary_underscores
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:172:81 • lines_longer_than_80_chars
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/features/train/train_screen.dart:182:59 • deprecated_member_use
+   info • The line length exceeds the 80-character limit • lib/features/train/train_screen.dart:182:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/features/train/train_screen.dart:197:2 • eol_at_end_of_file
+   info • Missing a newline at the end of the file • lib/main.dart:4:35 • eol_at_end_of_file
+   info • Missing a newline at the end of the file • lib/main_prod.dart:4:36 • eol_at_end_of_file
+   info • Missing a newline at the end of the file • lib/main_stg.dart:4:35 • eol_at_end_of_file
+   info • Missing documentation for a public member • lib/router/app_router.dart:16:7 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:45:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/router/app_router.dart:58:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/router/app_router.dart:59:9 • public_member_api_docs
+   info • Missing documentation for a public member • lib/router/app_router.dart:60:33 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:77:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:78:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:79:81 • lines_longer_than_80_chars
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:80:81 • lines_longer_than_80_chars
+   info • Missing documentation for a public member • lib/router/app_router.dart:88:7 • public_member_api_docs
+   info • Missing documentation for a public member • lib/router/app_router.dart:89:3 • public_member_api_docs
+   info • Missing documentation for a public member • lib/router/app_router.dart:90:26 • public_member_api_docs
+   info • The line length exceeds the 80-character limit • lib/router/app_router.dart:93:81 • lines_longer_than_80_chars
+   info • Missing a newline at the end of the file • lib/router/app_router.dart:95:2 • eol_at_end_of_file
+   info • Dependencies not sorted alphabetically • pubspec.yaml:12:3 • sort_pub_dependencies
+   info • Dependencies not sorted alphabetically • pubspec.yaml:44:3 • sort_pub_dependencies
+   info • Missing a newline at the end of the file • test/smoke_test.dart:7:2 • eol_at_end_of_file
+
+496 issues found. (ran in 2.1s)

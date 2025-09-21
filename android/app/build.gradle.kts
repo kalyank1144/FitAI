@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.fitai.app"
+    namespace = "com.codesnesthorizon.FitAi"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.fitai.app"
+        applicationId = "com.codesnesthorizon.FitAi"
         minSdk = 26
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -32,21 +32,21 @@ android {
     productFlavors {
         create("dev") {
             dimension = "env"
-            applicationId = "com.fitai.app.dev"
+            applicationId = "com.codesnesthorizon.FitAi"
             resValue("string", "app_name", "FitAI Dev")
             resValue("string", "google_maps_api_key", "AIza...dev")
             manifestPlaceholders["authRedirectScheme"] = "fitai-dev"
         }
         create("stg") {
             dimension = "env"
-            applicationId = "com.fitai.app.stg"
+            applicationId = "com.codesnesthorizon.FitAi"
             resValue("string", "app_name", "FitAI Staging")
             resValue("string", "google_maps_api_key", "AIza...stg")
             manifestPlaceholders["authRedirectScheme"] = "fitai-stg"
         }
         create("prod") {
             dimension = "env"
-            applicationId = "com.fitai.app"
+            applicationId = "com.codesnesthorizon.FitAi"
             resValue("string", "app_name", "FitAI")
             resValue("string", "google_maps_api_key", "AIza...prod")
             manifestPlaceholders["authRedirectScheme"] = "fitai"

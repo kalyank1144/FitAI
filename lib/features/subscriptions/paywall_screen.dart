@@ -34,7 +34,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('FitAI Pro')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -49,7 +49,23 @@ class _PaywallScreenState extends State<PaywallScreen> {
                     title: Text(p.storeProduct.title),
                     subtitle: Text(p.storeProduct.description),
                     trailing: FilledButton(
-                      onPressed: () => Purchases.purchasePackage(p),
+                      onPressed: () async {
+                        try {
+                          await Purchases.purchasePackage(p);
+                        } catch (e) {
+                          if (kDebugMode) {
+                            print('Purchase failed (development mode): $e');
+                          }
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('Purchase unavailable in development mode: $e'),
+                                backgroundColor: Colors.orange,
+                              ),
+                            );
+                          }
+                        }
+                      },
                       child: Text(p.storeProduct.priceString),
                     ),
                   ),
@@ -61,14 +77,14 @@ class _PaywallScreenState extends State<PaywallScreen> {
                 child: ListTile(
                   title: const Text('Monthly'),
                   subtitle: const Text('15‑day free trial, then $9.99/mo'),
-                  trailing: FilledButton(onPressed: null, child: const Text('Select')),
+                  trailing: const FilledButton(onPressed: null, child: Text('Select')),
                 ),
               ),
               Card(
                 child: ListTile(
                   title: const Text('Yearly'),
                   subtitle: const Text('15‑day free trial, then $79.99/yr'),
-                  trailing: FilledButton(onPressed: null, child: const Text('Select')),
+                  trailing: const FilledButton(onPressed: null, child: Text('Select')),
                 ),
               ),
             ],
